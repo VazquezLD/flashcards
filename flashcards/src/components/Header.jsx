@@ -12,9 +12,10 @@ const HeaderStyled = styled.nav`
     justify-content: space-between;
     top: 0;
     position: fixed;
-    box-shadow: -2px 7px 56px -33px rgba(0,0,0,0.5);
-    -webkit-box-shadow: -2px 7px 56px -33px rgba(0,0,0,0.5);
-    -moz-box-shadow: -2px 7px 56px -33px rgba(0,0,0,0.5);
+    box-shadow: -2px 7px 56px -33px rgba(0,0,0,0.3);
+    -webkit-box-shadow: -2px 7px 56px -33px rgba(0,0,0,0.3);
+    -moz-box-shadow: -2px 7px 56px -33px rgba(0,0,0,0.3);
+    background-color: white;
     & ul{
         list-style: none;
         display: flex;
