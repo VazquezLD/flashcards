@@ -29,10 +29,6 @@ const ThemeContainer = () => {
                 <TitleContainer setClicked={setClicked}/>
                 <SubContainer flashcards={flashcards}></SubContainer>
             </ThemeContainerStyled>
-            <ThemeContainerStyled>
-                <TitleContainer setClicked={setClicked}/>
-                <SubContainer flashcards={flashcards}></SubContainer>
-            </ThemeContainerStyled>
         </>
     )
 }

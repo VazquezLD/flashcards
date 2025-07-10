@@ -17,7 +17,6 @@ const CardStyled = styled.div`
         width: 100%;
         height: 60%;
         background-color: #dadada;
-        border-radius: 10px;
     }
     &:hover{
         transform: translateY(-5px);
@@ -32,6 +31,7 @@ const FlashCard = ({ flashcards }) => {
         <CardStyled key={index}>
           <div style={{ backgroundColor: card.color }}></div>
           <span>{card.title}</span>
+          <span>{card.question}</span>
         </CardStyled>
       ))}
     </>

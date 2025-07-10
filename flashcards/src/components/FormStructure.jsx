@@ -45,6 +45,9 @@ const ErrorStyled = styled.span`
 const FormStructure = ({title, topic, setClicked, setFlashcards}) => {
     return(
         <>
+        <div>
+            <ButtonOptional setClicked={setClicked}/>
+        </div>
         <Formik initialValues={initialValues}
         validationSchema={validationSchema} 
         enableReinitialize={true}
@@ -95,9 +98,6 @@ const FormStructure = ({title, topic, setClicked, setFlashcards}) => {
                 </div>
             </FormStyled>
         </Formik>
-        <div>
-            <ButtonOptional setClicked={setClicked}/>
-        </div>
         </>
     )
 }
