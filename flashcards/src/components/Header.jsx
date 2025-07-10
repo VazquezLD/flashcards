@@ -16,6 +16,8 @@ const HeaderStyled = styled.nav`
     -webkit-box-shadow: -2px 7px 56px -33px rgba(0,0,0,0.3);
     -moz-box-shadow: -2px 7px 56px -33px rgba(0,0,0,0.3);
     background-color: white;
+    z-index: 1;
+
     & ul{
         list-style: none;
         display: flex;
@@ -45,7 +47,7 @@ const Header = () => {
             <HeaderStyled>
                 <span>FlashMIND</span>
                 <ul>
-                    <li><NavLink to={'/'}>inicio</NavLink></li>
+                    <li><NavLink to={'/'}>Inicio</NavLink></li>
                     <li><NavLink to={'flashcards'}>Flashcards</NavLink></li>
                     <li><NavLink to={'flashcard'}>Flashcard</NavLink></li>
                     <li><NavLink to={'profile'}>Perfil</NavLink></li>

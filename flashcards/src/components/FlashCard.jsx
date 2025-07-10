@@ -3,24 +3,19 @@ import styled from "styled-components";
 const CardStyled = styled.div`
     display: flex;
     flex-direction: column;
-    height: 250px;
-    width: 280px;
-    border: 1px solid #e9e9e9;
+    height: 200px;
+    width: 250px;
     transition: all 0.3s ease;
     overflow: hidden;
     border-radius: 20px;
+    border: 1px solid #0000001a;
     & span{
-        font-weight: 600;
-        padding: 5px;
-    }
-    & p{
-        font-weight: 200;
-        padding: 5px;
-        margin: 0;
+        font-weight: 400;
+        padding-left: 10px;
     }
     & div{
         width: 100%;
-        height: 40%;
+        height: 60%;
         background-color: #dadada;
         border-radius: 10px;
     }
@@ -30,14 +25,18 @@ const CardStyled = styled.div`
     }
 `
 
-const FlashCard = () => {
-    return(
-        <CardStyled>
-            <div></div>
-            <span>Titulo de cojunto</span>
-            <p>Descripcion que el usuario pone para el conjunto</p>
+const FlashCard = ({ flashcards }) => {
+  return (
+    <>
+      {flashcards.map((card, index) => (
+        <CardStyled key={index}>
+          <div style={{ backgroundColor: card.color }}></div>
+          <span>{card.title}</span>
         </CardStyled>
-    )
+      ))}
+    </>
+  )
 }
+
 
 export default FlashCard

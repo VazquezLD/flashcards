@@ -4,9 +4,9 @@ const LayoutStyled = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 100px;
+    padding-top: 90px;
     width: 100vw;
-    margin-top: 90px;
+    height: 100vh;
     gap: 50px;
 `
 

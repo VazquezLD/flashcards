@@ -15,6 +15,7 @@ const TitleStyled = styled.div`
     }
     & div{
         display: flex;
+        gap: 5px;
     }
     & button{
         background-color: transparent;

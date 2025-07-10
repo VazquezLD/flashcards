@@ -1,22 +1,22 @@
 import styled from "styled-components";
+import FlashCard from '../../components/FlashCard'
 
 const SubStyled = styled.div`
     display: grid;
-    flex-wrap: wrap;
     width: 100%;
     height: auto;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     padding-top: 30px;
-    gap: 15px;
+    gap: 5px;
 `
 
 const SubContainer = ({flashcards}) => {
 
     return(
         <SubStyled>
-            {flashcards.length === 0 ? (<span>No tienes flashcards aún</span>) : console.log(flashcards.length)}
+            {flashcards.length === 0 && <span>No tienes flashcards aún...</span>}
+            <FlashCard flashcards={flashcards}/>
         </SubStyled>
     )
 }
-
 export default SubContainer

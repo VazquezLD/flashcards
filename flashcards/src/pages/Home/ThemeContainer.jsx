@@ -2,7 +2,7 @@ import styled from "styled-components";
 import SubContainer from "./SubContainer";
 import TitleContainer from './TitleContainer'
 import { useEffect, useState } from "react";
-
+import CreateCard from "./CreateCard";
 
 const ThemeContainerStyled = styled.div`
     display: flex;
@@ -14,22 +14,26 @@ const ThemeContainerStyled = styled.div`
 
 const ThemeContainer = () => {
 
-    const flashcards = []
+    const [flashcards, setFlashcards] = useState([])
     const [clicked, setClicked] = useState(false)
 
     useEffect(()=> {
-        if (clicked){
-            console.log('Funca')
-            
-        }
-    }, [clicked])
+        console.log(flashcards)
+    }, [flashcards])
 
 
     return(
-        <ThemeContainerStyled>
-            <TitleContainer setClicked={setClicked}/>
-            <SubContainer flashcards={flashcards}/>
-        </ThemeContainerStyled>
+        <>
+            {clicked && <CreateCard setClicked={setClicked} setFlashcards={setFlashcards}/>}
+            <ThemeContainerStyled>
+                <TitleContainer setClicked={setClicked}/>
+                <SubContainer flashcards={flashcards}></SubContainer>
+            </ThemeContainerStyled>
+            <ThemeContainerStyled>
+                <TitleContainer setClicked={setClicked}/>
+                <SubContainer flashcards={flashcards}></SubContainer>
+            </ThemeContainerStyled>
+        </>
     )
 }
 
