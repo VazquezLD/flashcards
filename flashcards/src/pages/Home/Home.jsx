@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Layout from "../../components/Layout";
 import InputCardName from "./InputCardName";
-import ThemeContainer from "./ThemeContainer";
 import styled from "styled-components";
 import ButtonAcept from "./ButtonAcept";
+import { ThemesContainer } from "./ThemesContainer";
 
 const HomeStyled = styled.div`
     width: 100%;
@@ -16,18 +16,36 @@ const HomeStyled = styled.div`
 `
 
 export const Home = () => {
+  const [flashcardMap, setFlashcardMap] = useState({})
+  const [counter, setCounter] = useState(0)
+  const [themes, setThemes] = useState([])
 
-    const [themes, setThemes] = useState([])
-    const [deleteTheme, setDeleteTheme] = useState(false)
+  useEffect(() => {
+    const newThemeTitle = `Nuevo tema`
+    setThemes(prevThemes => [...prevThemes, newThemeTitle])
+    setFlashcardMap(prev => ({
+      ...prev,
+      [counter]: [],
+    }))
 
-    return(
-        <Layout>
-            <HomeStyled>
-                <span style={{fontWeight:600, fontSize:20}}>Bienvenido! Aquí se guardan tus conjuntos de Flashcards</span>
-                <ButtonAcept text='Nuevo Tema'/>
-                <InputCardName placeholder="Buscar Temas"/>
-                <ThemeContainer/>
-            </HomeStyled>
-        </Layout>
-    )
+  }, [counter])
+
+  useEffect(() => {
+    console.log('themes:', themes)
+    console.log('flashcardMap:', flashcardMap)
+  }, [themes, flashcardMap])
+
+  return (
+    <Layout>
+      <HomeStyled>
+        <span style={{ fontWeight: 600, fontSize: 20 }}>
+          Bienvenido! Aquí se guardan tus conjuntos de Flashcards
+        </span>
+        <ButtonAcept text="Nuevo Tema" setCounter={setCounter} />
+        <InputCardName placeholder="Buscar Temas" />
+        <ThemesContainer themes={themes} setFlashcardMap={setFlashcardMap} flashcardMap={flashcardMap}/>
+      </HomeStyled>
+    </Layout>
+  )
 }
+

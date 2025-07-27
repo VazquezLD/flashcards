@@ -15,13 +15,28 @@ const AceptStyled = styled.button`
     }
 `
 
-const ButtonAcept = ({ text = "Aceptar", type = "submit"}) => {
+const ButtonAcept = ({ text = "Aceptar", type = "submit", setCounter, setClicked }) => {
+  const handleClick = (e) => {
+    setTimeout(() => {
+      if (setClicked){
+        setClicked(null)
+      }
+      e.preventDefault()
+      
+      if (setCounter) {
+        setCounter(prevCounter => prevCounter + 1)
+      }
+    }, 100)
+    
+  }
 
   return (
-    <AceptStyled type={type}>
+    <AceptStyled type={type} onClick={handleClick}>
       {text}
     </AceptStyled>
   )
 }
 
 export default ButtonAcept
+
+

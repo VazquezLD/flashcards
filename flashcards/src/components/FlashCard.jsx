@@ -24,10 +24,10 @@ const CardStyled = styled.div`
     }
 `
 
-const FlashCard = ({ flashcards }) => {
+const FlashCard = ({ flashcardMap, index}) => {
   return (
     <>
-      {flashcards.map((card, index) => (
+      {flashcardMap[index].map((card, index) => (
         <CardStyled key={index}>
           <div style={{ backgroundColor: card.color }}></div>
           <span>{card.title}</span>

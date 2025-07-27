@@ -15,7 +15,7 @@ const ButtonStyled = styled.button`
 
 const ButtonOptional = ({setClicked}) => {
     return(
-        <ButtonStyled onClick={() => {setClicked(false)}}>
+        <ButtonStyled onClick={() => {setClicked(null)}}>
             <IoArrowBackOutline/>
         </ButtonStyled>
     )

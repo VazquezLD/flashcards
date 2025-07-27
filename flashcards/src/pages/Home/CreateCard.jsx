@@ -6,14 +6,21 @@ const CreateCardStyled = styled.div`
     display: flex;
     justify-content: center;
     background-color: #ffffff;
+    padding-top: 100px;
+    top: 0;
+    margin: 0;
     width: 100vw;
-    height: 100%;
+    overflow-y: scroll;
 `
 
-const CreateCard = ({setClicked, setFlashcards}) => {
+const CreateCard = ({setClicked, setFlashcardMap, index, topic}) => {
     return(
         <CreateCardStyled>
-                <FormStructure title={'Ingresa los datos para crear una flashcard'} topic="" setClicked={setClicked} setFlashcards={setFlashcards}/>
+                <FormStructure index={index}
+                title={'Ingresa los datos para crear una flashcard'} 
+                topic={topic} setClicked={setClicked}
+                setFlashcardMap={setFlashcardMap}
+                />
         </CreateCardStyled>
     )
 }

@@ -9,26 +9,26 @@ const ThemeContainerStyled = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 55%;
+    width: 70%;
 `
 
-const ThemeContainer = () => {
+const ThemeContainer = ({themes, setFlashcardMap, flashcardMap}) => {
+    
+    const [clicked, setClicked] = useState(null)
+    
+    useEffect(() => {
+        console.log(clicked)
+    }, [clicked])
 
-    const [flashcards, setFlashcards] = useState([])
-    const [clicked, setClicked] = useState(false)
-
-    useEffect(()=> {
-        console.log(flashcards)
-    }, [flashcards])
-
-
-    return(
+    return (
         <>
-            {clicked && <CreateCard setClicked={setClicked} setFlashcards={setFlashcards}/>}
-            <ThemeContainerStyled>
-                <TitleContainer setClicked={setClicked}/>
-                <SubContainer flashcards={flashcards}></SubContainer>
-            </ThemeContainerStyled>
+            {themes.map((theme, index) => (
+                <ThemeContainerStyled key={index}>
+                    {clicked !== null && clicked === index && <CreateCard setClicked={setClicked} setFlashcardMap={setFlashcardMap} index={index} topic={theme}/>}
+                    <TitleContainer setClicked={setClicked} theme={theme} index={index}/>
+                    <SubContainer flashcardMap={flashcardMap} index={index} />
+                </ThemeContainerStyled>
+            ))}
         </>
     )
 }

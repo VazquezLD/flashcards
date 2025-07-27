@@ -42,7 +42,7 @@ const ErrorStyled = styled.span`
     color: red;
 `
 
-const FormStructure = ({title, topic, setClicked, setFlashcards}) => {
+const FormStructure = ({title, topic, setClicked, setFlashcardMap, index}) => {
     return(
         <>
         <div>
@@ -52,12 +52,13 @@ const FormStructure = ({title, topic, setClicked, setFlashcards}) => {
         validationSchema={validationSchema} 
         enableReinitialize={true}
         onSubmit={(values, {resetForm}) =>{
-            console.log(values)
+            setFlashcardMap(prev => ({
+                ...prev,
+                [index]: [...(prev[index] || []), values]
+                }))
             resetForm()
-            setClicked(false)
-            setTimeout(() => {
-                    setFlashcards(prev => [...prev, values])
-                }, 100)
+            setClicked(index)
+            
         }}>
             <FormStyled>
                 <h2>{title}</h2>
@@ -94,7 +95,7 @@ const FormStructure = ({title, topic, setClicked, setFlashcards}) => {
                 </div>
                 <ColorPicker name='color'/>
                 <div className="buttons">
-                    <ButtonAcept text='Aceptar' type='submit'/>
+                    <ButtonAcept text='Aceptar' type='submit' setClicked={setClicked}/>
                 </div>
             </FormStyled>
         </Formik>

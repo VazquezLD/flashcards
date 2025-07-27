@@ -10,12 +10,12 @@ const SubStyled = styled.div`
     gap: 5px;
 `
 
-const SubContainer = ({flashcards}) => {
+const SubContainer = ({flashcardMap, index}) => {
 
     return(
         <SubStyled>
-            {flashcards.length === 0 && <span>No tienes flashcards aún...</span>}
-            <FlashCard flashcards={flashcards}/>
+            {flashcardMap[index].length === 0 && <span>No tienes flashcards aún...</span>}
+            <FlashCard flashcardMap={flashcardMap} index={index}/>
         </SubStyled>
     )
 }

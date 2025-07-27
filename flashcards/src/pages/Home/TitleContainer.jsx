@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { IoTrashOutline } from "react-icons/io5";
 import { IoIosAdd } from "react-icons/io";
 import { HiOutlineDotsVertical } from "react-icons/hi";
-import { useState } from "react";
 
 const TitleStyled = styled.div`
   width: 100%;
@@ -41,7 +40,7 @@ const TitleStyled = styled.div`
   }
 `
 
-const TitleContainer = ({ setClicked, title='Tema 1' }) => {
+const TitleContainer = ({ setClicked, theme, index}) => {
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") e.preventDefault()
@@ -55,10 +54,10 @@ const TitleContainer = ({ setClicked, title='Tema 1' }) => {
         className="editable-title"
         onKeyDown={handleKeyDown}
       >
-        {title}
+        {theme}
       </span>
       <div>
-        <button onClick={() => setClicked(true)}>
+        <button onClick={() => setClicked(index)}>
           <IoIosAdd />
         </button>
         <button>
